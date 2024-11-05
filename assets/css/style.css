@@ -11019,19 +11019,7 @@ textarea.form-control-lg {
 .pricing {
   padding: 150px 0;
 }
-.pricing::before {
-  position: absolute;
-  content: "";
-  top: -40px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-image: url(../../assets/images/price-plans/price-plan-background-icons.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 0;
-}
+
 .pricing small, .pricing .small {
   color: #7A8496;
   padding-bottom: 30px;
@@ -11051,20 +11039,12 @@ textarea.form-control-lg {
   height: 22px;
   width: 45px;
 }
-.pricing .pricing-head::after {
-  position: absolute;
-  content: "";
-  top: 50px;
-  right: 0px;
-  left: 0;
-  width: 130px;
-  height: 130px;
-  background-size: contain;
-  background-image: url(../../assets/images/price-plans/dot-shape.png);
-  background-repeat: no-repeat;
-  z-index: -1;
-  background-position: center;
-  margin: 0 auto;
+.pricing .form-switch .form-check-input:checked {
+  margin: 0px 15px;
+  height: 22px;
+  width: 45px;
+  background-color: var(--bs-primary);
+  border: 1px solid var(--bs-primary);
 }
 .pricing .save::after {
   position: absolute;
@@ -11092,30 +11072,7 @@ textarea.form-control-lg {
   top: -10px;
   padding: 10px 12px;
 }
-.pricing .price-plan .badge::before {
-  position: absolute;
-  content: "";
-  top: -2px;
-  left: -9px;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-image: url(../../assets/images/price-plans/left-shape.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.pricing .price-plan .badge::after {
-  position: absolute;
-  content: "";
-  top: -2px;
-  right: -9px;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-image: url(../../assets/images/price-plans/right-shape.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 .pricing .price-plan .card-body::before {
   position: absolute;
   content: "";
@@ -11685,17 +11642,18 @@ textarea.form-control {
 
 div.features-container{
   padding: 30px;
-  border:2px solid blue;
-  border-radius: 5px;
+  border:2px solid rgba(var(--bs-primary-rgb));
+  border-radius: 25px;
+  background-color: white;
 }
 
 div.feature-item {
-  border: 1px solid #007bff;
+  border: 1px solid var(--bs-primary);
   border-radius: 30px;
   padding: 10px 20px;
   margin: 5px;
   text-align: center;
-  color: #007bff;
+  color: var(--bs-primary);
   font-weight: 500;
   transition: background-color 0.3s, color 0.3s;
   display: inline-block;

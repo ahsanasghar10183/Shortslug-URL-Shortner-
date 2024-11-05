@@ -160,7 +160,7 @@
                 <div class="col-12"><small class="fs-7 d-block text-white">Advanced Link Tracking</small></div>
                 <div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
                     <h2 class="fs-3 text-white mb-0">Dedicated Dashboard to Track and manage<br> your links like a Pro!</h2>
-                    <!-- <a href="#" class="btn btn-warning btn-hover-secondery section-btn">View All Features</a> -->
+                    <!-- <a href="#" class="btn btn-primary btn-hover-secondery section-btn">View All Features</a> -->
                 </div>
             </div>
             <div class="row d-flex flex-wrap justify-content-center step-row">
@@ -227,14 +227,14 @@
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                         <label class="form-check-label text-black fs-7" for="flexSwitchCheckChecked">Yearly</label>
                     </div>
-                    <div class="save d-inline-block position-relative text-warning fw-500 fs-9 text-center">Save Up To 58%</div>
+                    <div class="save d-inline-block position-relative text-primary fw-500 fs-9 text-center">Save Up To 58%</div>
                 </div>
             </div>
             <div class="row justify-content-center price-plan">
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="card position-relative shadow border-0 h-100">
                         <div class="card-body pb-4">
-                            <small class="fs-7 d-block text-warning text-center">Personal</small>
+                            <small class="fs-7 d-block text-primary text-center">Personal</small>
                             <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">0</sub><sup class="fs-6 position-absolute">$</sup></h2>
                             <small class="fs-7 d-block text-center">Free</small>
                             <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
@@ -254,17 +254,17 @@
                             </ul>
                         </div>
                         <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                            <a href="#" class="btn btn-warning btn-hover-secondery text-capitalize">Set Started</a>
+                            <a href="#" class="btn btn-primary btn-hover-secondery text-capitalize">Set Started</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="card position-relative shadow border-0 h-100">
-                        <div class="position-absolute badge bg-warning d-inline-block mx-auto">
+                        <div class="position-absolute badge bg-primary d-inline-block mx-auto">
                             Most Popular
                         </div>
                         <div class="card-body pb-4">
-                            <small class="fs-7 d-block text-warning text-center">Professional</small>
+                            <small class="fs-7 d-block text-primary text-center">Professional</small>
                             <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">49</sub><sup class="fs-6 position-absolute">$</sup></h2>
                             <small class="fs-7 d-block text-center">Free</small>
                             <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
@@ -288,14 +288,14 @@
                             </ul>
                         </div>
                         <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                            <a href="#" class="btn btn-warning btn-hover-secondery text-capitalize">Set Started</a>
+                            <a href="#" class="btn btn-primary btn-hover-secondery text-capitalize">Set Started</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="card position-relative shadow border-0 h-100">
                         <div class="card-body pb-4">
-                            <small class="fs-7 d-block text-warning text-center">Enterprise</small>
+                            <small class="fs-7 d-block text-primary text-center">Enterprise</small>
                             <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">99</sub><sup class="fs-6 position-absolute">$</sup></h2>
                             <small class="fs-7 d-block text-center">Free</small>
                             <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
@@ -323,7 +323,7 @@
                             </ul>
                         </div>
                         <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                            <a href="#" class="btn btn-warning btn-hover-secondery text-capitalize">Set Started</a>
+                            <a href="#" class="btn btn-primary btn-hover-secondery text-capitalize">Set Started</a>
                         </div>
                     </div>
                 </div>
@@ -440,7 +440,7 @@
             <div class="dots-shape-right position-absolute"><img src="../assets/images/icons/dot-shape.png"></div>
             <div class="row">
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                    <small class="fs-7 d-block text-warning">Join us Now</small>
+                    <small class="fs-7 d-block text-primary">Join us Now</small>
                     <h2 class="fs-3 text-white mb-0">Ready to try the product for free?</h2>
                     <div class="owl-carousel owl-theme testimonial">
                         <div class="item">
@@ -502,10 +502,10 @@
                             </div>
                             
                             <div class="agree fs-7 fw-500">
-                                By clicking on the Sign Up button, you agree to Rakon.<br><a href="#" class="text-warning text-decoration-none">terms and conditions of use.</a>
+                                By clicking on the Sign Up button, you agree to Rakon.<br><a href="#" class="text-primary text-decoration-none">terms and conditions of use.</a>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-warning btn-hover-secondery text-capitalize mt-2 w-auto contact-btn">Try for Free</button>
+                                <button class="btn btn-info btn-hover-secondery text-capitalize mt-2 w-auto contact-btn">Try for Free</button>
                             </div>
                         </div>
                     </form>
