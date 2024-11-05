@@ -168,7 +168,7 @@
                     <div class="card bg-transparent">
                         <div class="card-body">
                             <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i class="ti ti-brand-github text-white"></i></div>
-                            <h3 class="fs-4 text-white">Custom Links</h3>
+                            <h3 class="fs-4 text-white">Comprehensive Real Time Analysis</h3>
                             <p class="fs-7 mb-0 fw-500">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                     <div class="card bg-transparent">
                         <div class="card-body">
                             <div class="icon  mx-auto rounded-circle d-flex justify-content-center align-items-center"><i class="ti ti-crown text-white"></i></div>
-                            <h3 class="fs-4 text-white">QR Codes</h3>
+                            <h3 class="fs-4 text-white">AI Based Predictive Insights</h3>
                             <p class="fs-7 mb-0 fw-500">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
                     <div class="card bg-transparent">
                         <div class="card-body">
                             <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i class="ti ti-message-circle-2 text-white"></i></div>
-                            <h3 class="fs-4 text-white">Privacy Links</h3>
+                            <h3 class="fs-4 text-white">Password Protected Links</h3>
                             <p class="fs-7 mb-0 fw-500">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
                         </div>
                     </div>

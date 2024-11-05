@@ -11,7 +11,7 @@
                         <p class="blue-light mb-0 fs-7 fw-500">Rakon is a simple, elegant, and secure way to build your bitcoin and crypto portfolio.</p>
                         <div class="callus text-white fw-500 fs-7">
                             1989 Don Jackson Lane
-                            <div class="blue-light">Call us: <a href="#" class="text-warning fw-500 fs-7 text-decoration-none">808-956-9599</a></div>
+                            <div class="blue-light">Call us: <a href="#" class="text-info fw-500 fs-7 text-decoration-none">808-956-9599</a></div>
                         </div>
                     </div>
                 </div>

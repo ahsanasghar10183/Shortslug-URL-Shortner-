@@ -11263,7 +11263,8 @@ textarea.form-control-lg {
   font-weight: 500;
 }
 .footer ul li a:hover {
-  color: #EE7B11;
+  color: var(--bs-primary);
+
 }
 .footer .subscribe .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
   border-top-right-radius: 15px;
