@@ -436,8 +436,8 @@
     <!------------------------------>
     <section class="contact bg-primary position-relative overflow-hidden">
         <div class="container position-relative">
-            <div class="dots-shape-left position-absolute"><img src="../assets/images/icons/dot-shape.png"></div>
-            <div class="dots-shape-right position-absolute"><img src="../assets/images/icons/dot-shape.png"></div>
+            <div class="dots-shape-left position-absolute"><img src="./assets/images/icons/dot-shape.png"></div>
+            <div class="dots-shape-right position-absolute"><img src="./assets/images/icons/dot-shape.png"></div>
             <div class="row">
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                     <small class="fs-7 d-block text-primary">Join us Now</small>
@@ -449,7 +449,7 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece”
                                 </p>
                                 <div class="d-flex align-items-center">
-                                    <div class="avtar-img rounded-circle overflow-hidden"><img src="../assets/images/contact/testimonial-image.png" class="img-fluid"></div>
+                                    <div class="avtar-img rounded-circle overflow-hidden"><img src="./assets/images/contact/testimonial-image.png" class="img-fluid"></div>
                                     <div class="name ps-3">
                                         <h6 class="text-white">Merky Lester</h6>
                                         <small class="d-block blue-light fw-500 fs-10 pb-0">Managers</small>
@@ -463,7 +463,7 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece”
                                 </p>
                                 <div class="d-flex align-items-center">
-                                    <div class="avtar-img rounded-circle overflow-hidden"><img src="../assets/images/contact/testimonial-image.png" class="img-fluid"></div>
+                                    <div class="avtar-img rounded-circle overflow-hidden"><img src="./assets/images/contact/testimonial-image.png" class="img-fluid"></div>
                                     <div class="name ps-3">
                                         <h6 class="text-white">Merky Lester</h6>
                                         <small class="d-block blue-light fw-500 fs-10 pb-0">Managers</small>

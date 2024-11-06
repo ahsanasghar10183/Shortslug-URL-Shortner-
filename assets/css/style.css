@@ -11168,6 +11168,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
+  border: 2px solid green !important;
 }
 .contact .dots-shape-left {
   left: -75px;
@@ -11638,6 +11639,7 @@ textarea.form-control {
   }
   .contact .contact-btn {
     width: 100% !important;
+    
   }
 }/*# sourceMappingURL=style.css.map */
 
