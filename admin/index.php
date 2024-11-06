@@ -21,7 +21,7 @@
                         <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
+                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Device Stats</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Demographics</a>
@@ -84,8 +84,8 @@
                                 <div class="card-body">
                                   <div class="d-sm-flex justify-content-between align-items-start">
                                     <div>
-                                      <h4 class="card-title card-title-dash">Performance Line Chart</h4>
-                                      <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the printing</h5>
+                                      <h4 class="card-title card-title-dash">Clicks</h4>
+                                      <h5 class="card-subtitle card-subtitle-dash">Total Link Clicks Received within selected Timeframe</h5>
                                     </div>
                                     <div id="performanceLine-legend"></div>
                                   </div>
@@ -105,7 +105,7 @@
                                   <h4 class="card-title card-title-dash text-white mb-4">Status Summary</h4>
                                   <div class="row">
                                     <div class="col-sm-4">
-                                      <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                      <p class="status-summary-ight-white mb-1">Active Links</p>
                                       <h2 class="text-info">357</h2>
                                     </div>
                                     <div class="col-sm-8">
@@ -127,7 +127,7 @@
                                           <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
                                         </div>
                                         <div>
-                                          <p class="text-small mb-2">Total Visitors</p>
+                                          <p class="text-small mb-2">Total Clicks Today</p>
                                           <h4 class="mb-0 fw-bold">26.80%</h4>
                                         </div>
                                       </div>
@@ -138,7 +138,7 @@
                                           <div id="visitperday" class="progressbar-js-circle pr-2"></div>
                                         </div>
                                         <div>
-                                          <p class="text-small mb-2">Visits per day</p>
+                                          <p class="text-small mb-2">Avg Daily Clicks</p>
                                           <h4 class="mb-0 fw-bold">9065</h4>
                                         </div>
                                       </div>
@@ -158,19 +158,19 @@
                                 <div class="card-body">
                                   <div class="d-sm-flex justify-content-between align-items-start">
                                     <div>
-                                      <h4 class="card-title card-title-dash">Market Overview</h4>
-                                      <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                      <h4 class="card-title card-title-dash">Links Overview</h4>
+                                      <p class="card-subtitle card-subtitle-dash">Track which links are Secured and Active</p>
                                     </div>
                                     <div>
                                       <div class="dropdown">
                                         <button class="btn btn-light dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> This month </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                          <h6 class="dropdown-header">Settings</h6>
-                                          <a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <a class="dropdown-item" href="#">Something else here</a>
+                                          <h6 class="dropdown-header">Password Protected</h6>
+                                          <a class="dropdown-item" href="#">Active Links</a>
+                                          <a class="dropdown-item" href="#">Expired Links</a>
+                                          <a class="dropdown-item" href="#">Secure Links</a>
                                           <div class="dropdown-divider"></div>
-                                          <a class="dropdown-item" href="#">Separated link</a>
+                                          <a class="dropdown-item" href="#">Non Secure Links</a>
                                         </div>
                                       </div>
                                     </div>

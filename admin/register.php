@@ -36,13 +36,13 @@
                   <div class="mb-4">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> I agree to all Terms & Conditions </label>
+                        <input type="checkbox" class="form-check-input" style="opacity: 1;"> I agree to all Terms & Conditions </label>
                     </div>
                   </div>
                   <div class="mt-3 d-grid gap-2">
                     <a class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" href="./index.php">SIGN UP</a>
                   </div>
-                  <div class="text-center mt-4 fw-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  <div class="text-center mt-4 fw-light"> Already have an account? <a href="login.php" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>
