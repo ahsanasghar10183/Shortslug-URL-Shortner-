@@ -15,8 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <!-- <script src="/assets/Js/custom.js"></script> -->
-    <script src="./assets/Js/custom.js"></script>
-
+    <script src="App_Path/assets/Js/custom.js"></script>
+    
     <!-- Feather cdn -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.2/feather.min.js"></script>
 

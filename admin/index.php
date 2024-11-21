@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
- <?php include('./includes/head.php')?>
+ <?php
+ include (__DIR__ . '/includes/head.php');
+ ?>
   <body class="with-welcome-text">
-    
    <!-- Navbar here -->
     <?php include('./includes/header.php')?>
       <!-- partial -->
@@ -152,9 +153,9 @@
                       </div>
                       <div class="row">
                         <div class="col-lg-8 d-flex flex-column">
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
+                          <!-- <div class="row flex-grow"> -->
+                            <!-- <div class="col-12 grid-margin stretch-card"> -->
+                              <!-- <div class="card card-rounded">
                                 <div class="card-body">
                                   <div class="d-sm-flex justify-content-between align-items-start">
                                     <div>
@@ -189,21 +190,10 @@
                                     <canvas id="marketingOverview"></canvas>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded table-darkBGImg">
-                                <div class="card-body">
-                                  <div class="col-sm-8">
-                                    <h3 class="text-white upgrade-info mb-0"> Enhance your <span class="fw-bold">Campaign</span> for better outreach </h3>
-                                    <a href="#" class="btn btn-info upgrade-btn">Upgrade Account!</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                              </div> -->
+                            <!-- </div> -->
+                          <!-- </div> -->
+                         
                           <div class="row flex-grow">
                             <div class="col-12 grid-margin stretch-card">
                               <div class="card card-rounded">
@@ -626,35 +616,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
-                                <div class="card-body">
-                                  <div class="row">
-                                    <div class="col-lg-12">
-                                      <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                          <h4 class="card-title card-title-dash">Leave Report</h4>
-                                        </div>
-                                        <div>
-                                          <div class="dropdown">
-                                            <button class="btn btn-light dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Month Wise </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                              <h6 class="dropdown-header">week Wise</h6>
-                                              <a class="dropdown-item" href="#">Year Wise</a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="mt-3">
-                                        <canvas id="leaveReport"></canvas>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                       
                           <div class="row flex-grow">
                             <div class="col-12 grid-margin stretch-card">
                               <div class="card card-rounded">

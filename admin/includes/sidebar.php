@@ -1,8 +1,9 @@
  <!-- partial:partials/_sidebar.html -->
+  <?php $baseurl ?>
  <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="<?php echo $baseUrl?>analytics/all_analytics.php">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Analytics</span>
               </a>
@@ -16,28 +17,20 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Custom Short Link</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Email Link</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">SMS Link</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Telephone Link</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo $baseUrl; ?>links/create_short_link.php">Custom Short Link</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo $baseUrl; ?>links/create_email_link.php">Email Link</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo $baseUrl; ?>links/create_sms_link.php">SMS Link</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo $baseUrl; ?>links/create_tel_link.php">Telephone Link</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <a class="nav-link" href="<?php echo $baseUrl?>links/view_all_links.php">
                 <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Links</span>
-                <i class="menu-arrow"></i>
+                <span class="menu-title">Manage Links</span>
+           
               </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Expiring Links</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Password Protected Links</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Call to Action Links</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Multi Language Previews</a></li>
-
-                </ul>
-              </div>
+              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#charts">

@@ -1,4 +1,5 @@
 <?php 
-$path = "htdocs/url_shortner_app";
+$path = dirname(__FILE__, 2);
+echo $path;
 
 ?>

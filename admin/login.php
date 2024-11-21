@@ -21,7 +21,7 @@
                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="mt-3 d-grid gap-2">
-                    <a class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" href="./index.php">SIGN IN</a>
+                    <a class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" href="../includes/config.php">SIGN IN</a>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
