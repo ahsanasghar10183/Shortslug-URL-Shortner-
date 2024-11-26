@@ -30505,3 +30505,11 @@ img.details_social_preview_image{
   max-height: 100px;
   border-radius: 0px !important;
 }
+div.customize_form_container
+{
+
+  border: 1px solid lightgray;
+}
+
+
+/* preview_tempelate css  */

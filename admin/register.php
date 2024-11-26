@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <?php include('../includes/head.php')?>
+  <?php
+   include('../includes/head.php');
+  include('./db_connection.php');
+  if($_SERVER['REQUEST_METHOD']== 'POST'){
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $checkEmailstmt = prepare("SELECT email from users WHERE email = ?");
+    $checkEmailstmt->bindparams('s', $email);
+    $checkEmailstmt->execute();
+    $checkEmailstmt->store_result();
+    if ($checkEmailStmt->num_rows > 0) {
+      $message = "Email ID already exists";
+      
+  } else {
+      // Prepare and bind
+      $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+      $stmt->bind_param("ss", $email, $password);
+
+      if ($stmt->execute()) {
+          $message = "Account created successfully";
+      } else {
+          $message = "Error: " . $stmt->error;
+      }
+
+      $stmt->close();
+  }
+
+  $checkEmailStmt->close();
+  $conn->close();
+  
+  }
+  ?>
   <body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -13,25 +45,13 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="fw-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3">
+                <form class="pt-3" action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                    <input type="email" class="form-control form-control-lg" id="email" placeholder="Email">
                   </div>
+                  
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                    <select class="form-select form-select-lg" id="exampleFormControlSelect2">
-                      <option>Country</option>
-                      <option>United States of America</option>
-                      <option>United Kingdom</option>
-                      <option>India</option>
-                      <option>Germany</option>
-                      <option>Argentina</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
                   </div>
                   <div class="mb-4">
                     <div class="form-check">
@@ -40,7 +60,7 @@
                     </div>
                   </div>
                   <div class="mt-3 d-grid gap-2">
-                    <a class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" href="./index.php">SIGN UP</a>
+                    <a class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn" type="submit" >SIGN UP</a>
                   </div>
                   <div class="text-center mt-4 fw-light"> Already have an account? <a href="login.php" class="text-primary">Login</a>
                   </div>
