@@ -15,7 +15,7 @@
                         <div class=" mt-5">
                             <div class="input-group link_shortner_input">
                               <input type="text" class="form-control link_shortner_input" placeholder="Enter text here" aria-label="Input field">
-                              <button class="btn btn-primary px-4 shortner_button" type="button">Short Link</button>
+                              <a class="btn btn-primary px-4 shortner_button" href="/admin/login.php" type="button">Short Link</a>
                             </div>
                         </div>
                     </div>

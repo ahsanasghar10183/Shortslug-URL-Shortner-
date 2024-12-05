@@ -365,7 +365,7 @@
       new Chart(doughnutChartCanvas, {
         type: 'doughnut',
         data: {
-          labels: ['Total','Net','Gross','AVG'],
+          labels: ['Total','Active','Inactive','Expired'],
           datasets: [{
             data: [40, 20, 30, 10],
             backgroundColor: [

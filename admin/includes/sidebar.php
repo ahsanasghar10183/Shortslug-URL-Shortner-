@@ -3,7 +3,7 @@
  <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo $baseUrl?>analytics/all_analytics.php">
+              <a class="nav-link" href="<?php echo $baseUrl?>">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Analytics</span>
               </a>
@@ -33,14 +33,6 @@
               
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#charts">
-                <i class="menu-icon mdi mdi-chart-line"></i>
-                <span class="menu-title">QR Codes</span>
-                
-              </a>
-              
-            </li>
-            <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                 <i class="menu-icon mdi mdi-table"></i>
                 <span class="menu-title">Browser Plugins</span>
@@ -58,7 +50,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <a class="nav-link"  href="<?php echo $baseUrl?>links/bulk_import.php">
                 <i class="menu-icon mdi mdi-layers-outline"></i>
                 <span class="menu-title">Bulk Import</span>
               </a>
@@ -73,10 +65,8 @@
               <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link"  href="<?php echo $baseUrl; ?>landingpages/create.php"> Create Landing Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo $baseUrl; ?>landingpages/view.php"> View Landing Pages </a></li>
+                
                 </ul>
               </div>
             </li>

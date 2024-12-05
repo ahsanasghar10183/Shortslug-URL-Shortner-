@@ -7,6 +7,14 @@
 <!-- head.php -->
 <?php
 $baseUrl = '/admin/';  // Set this to reference the 'admin' directory
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+
+// Check or initialize $scriptDir
+$scriptDir = $scriptDir ?? __DIR__;
+$scriptDir = rtrim($scriptDir, '/\\');
+$rootPath = $scriptDir;
+$rooturl = $protocol . $host;
 ?>
 
 <!-- Include CSS Files -->

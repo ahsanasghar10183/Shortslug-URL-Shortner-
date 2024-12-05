@@ -1,5 +1,13 @@
    
-   <?php $baseUrl = '/admin/'; ?>
+   <?php $baseUrl = '/admin/';
+    if(!isset($_SESSION))
+    {
+      session_start();
+    }
+    $user_email = $_SESSION['email'];
+
+   ?>
+  
    <!-- partial:partials/_navbar.html -->
    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -9,10 +17,10 @@
             </button>
           </div>
           <div>
-            <a class="navbar-brand brand-logo" href="index.html">
+            <a class="navbar-brand brand-logo" href="<?php echo $baseUrl?>">
               <img src="<?php echo $baseUrl?>assets/images/short-slug-logo.png" alt="logo" />
             </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
+            <a class="navbar-brand brand-logo-mini">
               <img src="<?php echo $baseUrl?>assets/images/Short-url-fav-icon.png" alt="logo" />
             </a>
           </div>
@@ -20,7 +28,7 @@
         <div class="navbar-menu-wrapper d-flex align-items-top">
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-              <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">Ahsan Asghar</span></h1>
+              <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold"><?php echo $user_email ?></span></h1>
               <h3 class="welcome-sub-text">Your performance summary this week </h3>
             </li>
           </ul>
@@ -120,10 +128,10 @@
             </li>
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
               <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="<?php echo $baseUrl?>assets/images/profile_picture.png" alt="Profile image"> </a>
+                <img class="img-xs rounded-circle border-1" src="<?php echo $baseUrl?>assets/images/profile_picture.png" alt="Profile image"> </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle"  src="<?php echo $baseUrl?>assets/images/shortslug_user.png" alt="Profile image">
+                  <img class="img-xs rounded-circle"  src="<?php echo $baseUrl?>assets/images/shortslug_user.png" alt="Profile image">
                   <p class="mb-1 mt-3 fw-semibold">Ahsan Asghar</p>
                   <p class="fw-light text-muted mb-0">ahsanasghar232@gmail.com</p>
                 </div>
@@ -131,7 +139,7 @@
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                <a class="dropdown-item" href="<?php echo $baseUrl . 'logout.php'?>"> <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
             </li>
           </ul>

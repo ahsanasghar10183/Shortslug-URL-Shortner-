@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+
+# Rewrite rule to capture shortcode and redirect
+RewriteRule ^([a-zA-Z0-9]+)$ admin/links/shortcode_handler.php?shortcode=$1 [L]
+

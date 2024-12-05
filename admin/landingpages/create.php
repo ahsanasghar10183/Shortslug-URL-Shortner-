@@ -1,7 +1,74 @@
 <?php
 $baseurl = dirname(__DIR__, 1);
+$vendorpath = dirname(__DIR__, 2);
+
 include($baseurl . '/includes/head.php');
+include($baseurl . '/db_connection.php');
+require_once($vendorpath. '/vendor/phpqrcode/phpqrcode.php');
+
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect to login page
+    exit();
+}
+$user_id = $_SESSION['user_id'];
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Get form data
+    $user_id =$user_id;
+    $page_name = $_POST['landing_page_name'];
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $button_text = $_POST['button'];
+    $destination_link = $_POST['landing_page_destinationLink'];
+    $expiryDate = $_POST['expiryDate'];
+    $destination_after_expiry = $_POST['destination_after_expiry'];
+    $background_color = $_POST['background_color'];
+    $text_color = $_POST['text_color'];
+    $button_color = $_POST['button_color'];
+    $font = $_POST['font'];
+    $short_code = substr(md5(uniqid(mt_rand(), true)), 0, 6);
+
+    // Prepare the SQL query
+    $query = "INSERT INTO landingpages 
+        (user_id, name, title, description, button_text, destination_link, short_link, expiryDate, destination_after_expiry, background_color, text_color, button_color, font) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    // Prepare and execute the statement
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param(
+        "issssssssssss", 
+        $user_id,
+        $page_name,
+        $title, 
+        $description, 
+        $button_text, 
+        $destination_link, 
+        $short_code, 
+        $expiryDate,
+        $destination_after_expiry,
+        $background_color, 
+        $text_color, 
+        $button_color, 
+        $font 
+    );
+    
+    if ($stmt->execute()) {
+        echo "Landing page saved successfully!";
+        // Redirect to another page if needed
+        // header("Location: landingpages_list.php");
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 
 <body class="with-welcome-text">
   <!-- Navbar here -->
@@ -119,7 +186,7 @@ include($baseurl . '/includes/head.php');
                     </div>
                   </div>
                   <div class="col-md-3">
-                    <div class="card template-card" data-template-id="3" onclick="selectTemplate(3, 'Tech', 'Freshly baked goods, cakes, and pastries made daily.', '<?php echo $baseUrl ?>assets/images/bakery_image.jpg')">
+                    <div class="card template-card" data-template-id="3" onclick="selectTemplate(3, 'Tech', 'Freshly baked goods, cakes, and pastries made daily.', '<?php echo $baseUrl ?>assets/images/tech.jpg')">
                       <img src="<?php echo $baseUrl ?>assets/images/tech.jpg" alt="Bakery">
                       <h5>Tech</h5>
                       <p>Freshly baked goods, cakes, and pastries made daily.</p>
@@ -127,9 +194,9 @@ include($baseurl . '/includes/head.php');
                     </div>
                   </div>
                   <div class="col-md-3">
-                    <div class="card template-card" data-template-id="3" onclick="selectTemplate(4, 'News', 'Freshly baked goods, cakes, and pastries made daily.', '<?php echo $baseUrl ?>assets/images/bakery_image.jpg')">
+                    <div class="card template-card" data-template-id="4" onclick="selectTemplate(4, 'News', 'Freshly baked goods, cakes, and pastries made daily.', '<?php echo $baseUrl ?>assets/images/news_image.avif')">
                       <img src="<?php echo $baseUrl ?>assets/images/news_image.avif" alt="Bakery">
-                      <h5>Bakery</h5>
+                      <h5>News</h5>
                       <p>Freshly baked goods, cakes, and pastries made daily.</p>
                       <button class="cta-button">Explore Now</button>
                     </div>
@@ -145,7 +212,11 @@ include($baseurl . '/includes/head.php');
                   <!-- Editor Section -->
                   <div class="col-md-8">
                     <div class="card p-3 customize_form_container">
-                      <form id="customizationForm" >
+                      <form id="customizationForm" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
+                      <div class="mb-3">
+                          <label for="landing_page_name" class="form-label">Landing Page Name</label>
+                          <input type="text" class="form-control" name="landing_page_name" id="landing_page_name" placeholder="Enter title">
+                        </div>  
                         <div class="mb-3">
                           <label for="templateTitle" class="form-label">Title</label>
                           <input type="text" class="form-control" id="templateTitle" name="title" placeholder="Enter title">
@@ -158,28 +229,37 @@ include($baseurl . '/includes/head.php');
                           <label for="templateButton" class="form-label">Button Text</label>
                           <input type="text" class="form-control" id="templateButton" name="button" placeholder="Enter button text">
                         </div>
+                      
+                        <div class="form-group">
+                                <label for="expiryDate" class="text-dark">Expiry Date & Time</label>
+                                <input type="datetime-local" class="form-control" name="expiryDate" id="expiryDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination_after_expiry" class="text-dark">Destination After Expiry</label>
+                                <input type="type" class="form-control" name="destination_after_expiry" id="destination_after_expiry">
+                            </div>
                         <!-- Color and Font Selection -->
                         <div class="mb-3">
                             <div class="row">
                                <label for="colorPicker" class="form-label">Select Color</label>
                                 <div class="col-4">
                                     <label for="colorPicker" class="form-label" style="font-size: 10px;">Background</label>
-                                    <input type="color" id="background_colorPicker" class="form-control">
+                                    <input type="color" id="background_colorPicker" name="background_color" class="form-control">
                                 </div>
                                 <div class="col-4">
                                     <label for="colorPicker" class="form-label" style="font-size: 10px;">Text</label>
-                                    <input type="color" id="text_colorPicker" class="form-control">
+                                    <input type="color" id="text_colorPicker" name="text_color" class="form-control">
                                 </div>
                                 <div class="col-4">
                                     <label for="colorPicker" class="form-label" style="font-size: 10px;">Button</label>
-                                    <input type="color" id="button_colorPicker" class="form-control">
+                                    <input type="color" id="button_colorPicker" name="button_color" class="form-control">
                                 </div>
                             </div>
                         
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" >
                           <label for="fontSelector" class="form-label">Select Font</label>
-                          <select id="fontSelector" class="form-select">
+                          <select id="fontSelector" name="font" class="form-select">
                             <option value="Arial">Arial</option>
                             <option value="Georgia">Georgia</option>
                             <option value="Times New Roman">Times New Roman</option>
@@ -193,7 +273,7 @@ include($baseurl . '/includes/head.php');
                   </div>
 
                   <!-- Template Preview Section -->
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="height: 550px;">
                     <div id="templatePreview" style="height:100%" class="template-card">
                       <img src="<?php echo $baseUrl?>assets/images/place_holder_preview_image.jpg" id="previewImage" alt="Template Image">
                       <h5 id="previewTitle">Sample Title</h5>
@@ -254,5 +334,14 @@ include($baseurl . '/includes/head.php');
         });
       });
     });
+
+    const fontSelector = document.getElementById('fontSelector');
+
+fontSelector.addEventListener('change', function () {
+    console.log('Selected font:', this.value);
+    // You can also use the selected text:
+    console.log('Selected text:', this.options[this.selectedIndex].text);
+});
+
   </script>
 </body>

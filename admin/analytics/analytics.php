@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\laragon\www\url_shortner_app\vendor\autoload.php';
+require_once 'C:\laragon\www\shortslug\vendor\autoload.php';
 
 use Google\Analytics\Data\V1beta\BetaAnalyticsDataClient;
 use Google\Analytics\Data\V1beta\DateRange;
@@ -9,77 +9,102 @@ use Google\Analytics\Data\V1beta\Filter;
 use Google\Analytics\Data\V1beta\FilterExpression;
 use Google\Analytics\Data\V1beta\Filter\StringFilter;
 
-function initializeAnalytics($credentialsPath)
+class GoogleAnalyticsService
 {
-    // Initialize the client using the Google Analytics Data API
-    $client = new BetaAnalyticsDataClient(['credentials' => $credentialsPath]);
-    return $client;
-}
+    private $client;
+    private $propertyId;
 
-
-
-function getReport($client, $propertyId, $url)
-{
-    // Define the date range for the report.
-    $dateRange = new DateRange();
-    $dateRange->setStartDate('7daysAgo');
-    $dateRange->setEndDate('today');
-
-    // Define the dimension for the page path (URL).
-    $dimension = new Dimension();
-    $dimension->setName('pagePath');
-
-    // Define the metric for page views.
-    $metric = new Metric();
-    $metric->setName('screenPageViews');
-
-    // Create a StringFilter for the specific page path (URL).
-    $stringFilter = new StringFilter();
-    $stringFilter->setMatchType(StringFilter\MatchType::EXACT);
-    $stringFilter->setValue($url);
-
-    // Create a Filter using the StringFilter.
-    $filter = new Filter();
-    $filter->setFieldName('pagePath');
-    $filter->setStringFilter($stringFilter);
-
-    $filterExpression = new FilterExpression();
-    $filterExpression->setFilter($filter);
-
-    // Run the report query.
-    $response = $client->runReport([
-        'property' => 'properties/' . $propertyId,
-        'dateRanges' => [$dateRange], // Ensure dateRanges key is camel case here
-        'dimensions' => [$dimension],
-        'metrics' => [$metric],
-        'dimensionFilter' => $filterExpression
-    ]);
-
-    return $response;
-}
-
-function printResults($response)
-{
-    foreach ($response->getRows() as $row) {
-        $dimensions = $row->getDimensionValues();
-        $metrics = $row->getMetricValues();
-        echo "URL: " . $dimensions[0]->getValue() . "<br>";
-        echo "Pageviews: " . $metrics[0]->getValue() . "<br><br>";
+    public function __construct($credentialsPath, $propertyId)
+    {
+        $this->client = new BetaAnalyticsDataClient(['credentials' => $credentialsPath]);
+        $this->propertyId = $propertyId;
     }
+
+    public function getAnalyticsDataForUrl($url, $startDate, $endDate)
+    {
+        // Fetch data grouped by country
+        $dataByCountry = $this->fetchReport($url, $startDate, $endDate, 'country');
+        
+        // Fetch data grouped by device category
+        $dataByDevice = $this->fetchReport($url, $startDate, $endDate, 'deviceCategory');
+
+        return compact('dataByCountry', 'dataByDevice');
+    }
+
+    private function fetchReport($url, $startDate, $endDate, $dimensionName)
+    {
+        $dateRange = new DateRange();
+        $dateRange->setStartDate($startDate);
+        $dateRange->setEndDate($endDate);
+
+        $dimension = new Dimension();
+        $dimension->setName($dimensionName);
+
+        $metrics = [
+            (new Metric())->setName('screenPageViews'),
+            (new Metric())->setName('newUsers'),
+            (new Metric())->setName('activeUsers'),
+            (new Metric())->setName('bounceRate'),
+            (new Metric())->setName('userEngagementDuration'),
+        ];
+
+        $stringFilter = new StringFilter();
+        $stringFilter->setMatchType(StringFilter\MatchType::EXACT);
+        $stringFilter->setValue($url);
+
+        $filter = new Filter();
+        $filter->setFieldName('pagePath');
+        $filter->setStringFilter($stringFilter);
+
+        $filterExpression = new FilterExpression();
+        $filterExpression->setFilter($filter);
+
+        try {
+            $response = $this->client->runReport([
+                'property' => 'properties/' . $this->propertyId,
+                'dateRanges' => [$dateRange],
+                'dimensions' => [$dimension],
+                'metrics' => $metrics,
+                'dimensionFilter' => $filterExpression,
+            ]);
+
+            return $this->formatResponse($response);
+        } catch (Exception $e) {
+            error_log('Google Analytics API Error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    public function formatResponse($response)
+    {
+        $formattedData = [];
+        foreach ($response->getRows() as $row) {
+            $dimensions = array_map(fn($item) => $item->getValue(), iterator_to_array($row->getDimensionValues()));
+            $metrics = array_map(fn($item) => $item->getValue(), iterator_to_array($row->getMetricValues()));
+    
+            $formattedData[] = [
+                'dimensions' => $dimensions,
+                'metrics' => $metrics,
+            ];
+        }
+        return $formattedData;
+    }
+    
 }
 
-// Path to your JSON credentials file from Google Cloud Console
-$credentialsPath = 'C:/laragon/www/url_shortner_app/admin/includes/analytics-key.json';
-
-// GA4 Property ID
+// Usage
+$credentialsPath = 'C:/laragon/www/shortslug/admin/includes/analytics-key.json';
 $propertyId = '449078644';
 
-// URL path you want to retrieve data for
-$url = '/taylor-swift-2048'; // Update this to the page path you want
+$service = new GoogleAnalyticsService($credentialsPath, $propertyId);
 
-// Initialize the Analytics Data API client
-$client = initializeAnalytics($credentialsPath);
+// Replace with your desired URL, start date, and end date
+$url = '/taylor-swift-2048';
+$startDate = '2024-11-01';
+$endDate = '2024-11-07';
 
-// Fetch and display the report data
-$response = getReport($client, $propertyId, $url);
-printResults($response);
+$data = $service->getAnalyticsDataForUrl($url, $startDate, $endDate);
+
+
+
+?>

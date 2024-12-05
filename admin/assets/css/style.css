@@ -30510,6 +30510,11 @@ div.customize_form_container
 
   border: 1px solid lightgray;
 }
+div.show_link{
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+  padding:12px;
+}
 
 
 /* preview_tempelate css  */
